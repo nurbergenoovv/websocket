@@ -18,8 +18,9 @@ def index():
 def handle_message(msg):
     global device_status
     if msg == 'toggle':
-        # При получении сообщения 'toggle', инвертируем состояние устройства
         device_status = 1 if device_status == 0 else 0
+        send(device_status, broadcast=True)
+    else:
         send(device_status, broadcast=True)
 
 if __name__ == '__main__':
