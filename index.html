@@ -27,7 +27,6 @@
             socket.send('toggle')
         });
 
-        // Отправка запроса на получение текущего статуса при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             socket.emit('message', 'get_status');
         });

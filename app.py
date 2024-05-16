@@ -17,6 +17,7 @@ def index():
 @socketio.on('message')
 def handle_message(msg):
     global device_status
+    print('Received message:'+ msg)
     if msg == 'toggle':
         device_status = 1 if device_status == 0 else 0
         send(device_status, broadcast=True)
