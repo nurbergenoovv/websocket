@@ -17,14 +17,18 @@
         socket.on('message', function(msg) {
             const statusElement = document.getElementById('status');
             console.log(msg)
+                statusElement.textContent = msg;
         });
 
         document.getElementById('toggle').addEventListener('click', function() {
-            socket.send('message', 'sdf')
+            socket.send({
+                type: 'toggle',
+                message: 'toggle'
+            })
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            socket.send('message', 'test');
+            socket.send('message');
         });
     </script>
 </body>

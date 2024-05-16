@@ -9,7 +9,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @socketio.on('message')
 def handle_message(msg):
-    print('Received message:'+ msg)
+    print('Received message:'+ str(msg))
     send(msg, broadcast=True)
 
 if __name__ == '__main__':
